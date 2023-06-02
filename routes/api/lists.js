@@ -62,9 +62,11 @@ router.put("/renameList/:id", async (req, res) => {
   res.status(204).send();
 });
 
+const url = process.env.MONGO_URL;
+
 async function loadListsCollection() {
   const client = await mongodb.MongoClient.connect(
-    `mongodb://localhost:27017/todo`,
+    url,
     {
       useNewUrlParser: true,
     }
