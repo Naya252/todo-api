@@ -8,7 +8,7 @@ const app = express();
 
 //Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({credentials: true, origin: 'https://todo-xkoh.onrender.com'}));
 app.use(history());
 
 const lists = require('./routes/api/lists');
@@ -17,10 +17,10 @@ const tasks = require('./routes/api/tasks');
 app.use('/api/lists', lists);
 app.use('/api/tasks', tasks);
 
-app.get(/.*/, (req, res) => {
-    res.setHeader("Access-Control-Allow-Creditials", "true");
-    res.send("API is running...")
-});
+// app.get(/.*/, (req, res) => {
+//     res.setHeader("Access-Control-Allow-Creditials", "true");
+//     res.send("API is running...")
+// });
 
 
 //Handle production
