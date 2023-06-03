@@ -25,7 +25,6 @@ if(process.env.NODE_ENV === 'production'){
     //Handle SPA
     app.get(/.*/, (req, res) => {
     res.setHeader("Access-Control-Allow-Creditials", "true");
-    res.send("API is running...");
     res.sendFile(__dirname + 'dist/index.html');
 });
 }
